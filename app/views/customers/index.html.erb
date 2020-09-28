@@ -1,0 +1,9 @@
+<h1>All the Customers</h1>
+
+<h2>
+    <% @customers.each do |customer| %>
+        <li>
+            <%= link_to customer.full_name, customer_path(customer) %>
+        </li>
+    <% end %>
+</h2>

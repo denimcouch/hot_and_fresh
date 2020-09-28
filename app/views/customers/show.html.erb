@@ -1,0 +1,13 @@
+<h1><%= @customer.full_name %></h1>
+
+<h3><%= @customer.created_at.strftime("Customer since %B %d, %Y") %></h3>
+
+<h2>Purchased Goods:
+    <% @customer.items.each do |item| %>
+        <li>
+            <%= link_to item.name, item_path(item) %>
+        </li>
+    <% end %>
+</h2>
+
+<%= link_to('Delete Account', customer_path(@customer), method: "delete") %>
