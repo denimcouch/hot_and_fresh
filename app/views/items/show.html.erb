@@ -1,0 +1,10 @@
+<h1><%= @item.name %></h1>
+
+<h2> Bakeries that sell <%= @item.name %></h2>
+<h3>
+    <% @item.bakeries.each do |bakery| %>
+        <li>
+            <%= link_to bakery.name, bakery_path(bakery) %>
+        </li>
+    <% end %>
+</h3>
