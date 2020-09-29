@@ -1,0 +1,13 @@
+<h1><%= @bakery.name %></h1><hr>
+
+<h3>Located in <%= @bakery.location%></h3>
+<h3><%= @bakery.created_at.strftime("Open since %Y")%></h3>
+
+<h2>Tasty Offerings</h2>
+<p>
+    <% @bakery.items.each do |item| %>
+        <li>
+            <%= link_to item.name, item_path(item) %> - $<%= item.price%>.00
+        </li>
+    <% end %>
+</p>

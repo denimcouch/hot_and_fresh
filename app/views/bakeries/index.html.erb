@@ -1,9 +1,9 @@
 <h1>All the Bakeries</h1>
 
 <h2>
-    <% @bakeries.each do |customer| %>
+    <% @bakeries.each do |bakery| %>
         <li>
-            <%= link_to bakery.full_name, bakery_path(customer) %>
+            <%= link_to bakery.name, bakery_path(bakery) %>
         </li>
     <% end %>
 </h2>
