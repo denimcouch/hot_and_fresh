@@ -7,4 +7,7 @@ class Bakery < ApplicationRecord
             item.orders.count
         }.reverse[0]
     end
+
+    #create a method that creates a new Item.
+    
 end
