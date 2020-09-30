@@ -7,11 +7,12 @@
 <h2>
     <% @orders.each do |key, value| %>
         <li>
-            <u><%= key %> </u><br>
+            <u><%= link_to key.name, bakery_path(key) %> </u><br>
             <% value.each do |value_data| %>
                 <li>
                     <%=link_to (@items.find(value_data.item_id).name), 
-                    item_path(@items.find(value_data.item_id))%>
+                    item_path(@items.find(value_data.item_id))%> - ordered on
+                    <%=value_data.created_at.strftime("%D")%>
                 </li>
             <% end %>
         </li>

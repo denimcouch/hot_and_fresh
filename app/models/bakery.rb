@@ -8,6 +8,5 @@ class Bakery < ApplicationRecord
         }.reverse[0]
     end
 
-    #create a method that creates a new Item.
     
 end
