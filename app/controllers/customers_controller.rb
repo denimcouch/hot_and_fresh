@@ -10,7 +10,7 @@ class CustomersController < ApplicationController
     end
     
     def show
-        @orders = @customer.order_history
+        @orders = @customer.order_history_by_bakery
         @items = Item.all
     end
 
