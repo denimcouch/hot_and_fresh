@@ -11,5 +11,5 @@ class Item < ApplicationRecord
     def times_purchased
         self.orders.count
     end
-    
+ 
 end
