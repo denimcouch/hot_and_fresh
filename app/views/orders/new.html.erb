@@ -1,8 +1,13 @@
 <h1>Make an Order with <%= @bakery.name%> </h1>
 
-<%= form_with url: '/orders' do |f| %>
+<%= form_with model: @order do |f| %>
+
+<%=f.hidden_field :bakery_id, value: @bakery.id %>
+
 <%=f.collection_select :customer_id, @customers, :id, :full_name, {include_blank: "Select your Name."} %><br><br>
+
 <%=f.label :tasty_treats%><br>
 <%=f.collection_check_boxes :item_id, @items, :id, :name%><br><br>
+
 <%=f.submit "Place Order"%>
 <% end %>
