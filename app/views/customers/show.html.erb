@@ -2,10 +2,18 @@
 
 <h3><%= @customer.created_at.strftime("Customer since %B %d, %Y") %></h3>
 
-<h2>Purchased Goods:
-    <% @customer.items.each do |item| %>
+<h2>Order History:</h2>
+
+<h2>
+    <% @orders.each do |key, value| %>
         <li>
-            <%= link_to item.name, item_path(item) %>
+            <u><%= key %> </u><br>
+            <% value.each do |value_data| %>
+                <li>
+                    <%=link_to (@items.find(value_data.item_id).name), 
+                    item_path(@items.find(value_data.item_id))%>
+                </li>
+            <% end %>
         </li>
     <% end %>
 </h2>
