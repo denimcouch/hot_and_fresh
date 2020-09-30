@@ -8,6 +8,8 @@
 Bakery.destroy_all
 Customer.destroy_all
 Item.destroy_all
+Recipe.destroy_all
+Order.destroy_all
 
 kraftsmen = Bakery.create(name: "Kraftsmen Baking", location: "Houston, TX")
 wf = Bakery.create(name: "Whole Foods", location: "Austin, TX")
@@ -27,7 +29,7 @@ joe = Customer.create(first_name: "Joe", last_name: "Burks")
 end
 
 10.times do
-    Order.create(customer_id: Customer.all.sample.id, item_id: Item.all.sample.id)
+    Order.create(customer_id: Customer.all.sample.id, item_id: Item.all.sample.id, bakery_id: Bakery.all.sample.id)
 end
 
 puts "Let's go get some donuts."
