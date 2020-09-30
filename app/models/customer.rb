@@ -26,6 +26,9 @@ class Customer < ApplicationRecord
         self.orders_by_date.group_by{|o| o.created_at.strftime("%D")}
     end
 
+   
+    
+
 end
 
 
