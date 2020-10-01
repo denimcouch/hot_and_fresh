@@ -11,7 +11,7 @@
         </li>
     <% end %><br/>
 
-    <%= button_to "Place an Order", {controller: 'orders', action: 'new'}, params: {bakery: @bakery}, method: "get"%>
+    <%= button_to "Place an Order", {controller: 'orders', action: 'new'}, params: {bakery: @bakery, customer_id: session[:id]}, method: "get"%>
 </p>
 
 <hr>
