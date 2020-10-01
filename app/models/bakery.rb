@@ -14,6 +14,10 @@ class Bakery < ApplicationRecord
         (self.customers.max_by{|c| c.orders.count})
     end
 
+    def most_valued_customer_name
+        self.most_valued_customer.full_name
+    end
+
     def most_valued_customer_orders
         self.most_valued_customer.orders.select{|order| order.bakery_id == self.id}
     end

@@ -2,6 +2,11 @@ class Customer < ApplicationRecord
     has_many :orders
     has_many :items, through: :orders 
     has_many :bakeries, through: :orders
+    validates :first_name, presence: true
+    validates :last_name, presence: true
+    validates :email, presence: true
+    validates :password, presence: true
+    has_secure_password
 
     def full_name
         self.first_name + " " + self.last_name
@@ -33,6 +38,7 @@ class Customer < ApplicationRecord
             orders.bakery_id
         }.reverse
     end
+
     def order_history_by_bakery
          ((self.orders_by_bakery.group_by{|order| order.bakery_id }).map{|k,v| k = Bakery.find(k), v = v}).to_h
     end
@@ -51,9 +57,6 @@ class Customer < ApplicationRecord
         #look at all the orders from a specific bakery
         #find the total price of all the items inside the value
     # end
-
-   
-    
 
 end
 

@@ -1,4 +1,4 @@
-<h1>All the Bakeries</h1>
+<h1>All the Bakeries</h1><hr>
 
 <h2>
     <% @bakeries.each do |bakery| %>
@@ -7,3 +7,7 @@
         </li>
     <% end %>
 </h2>
+<hr>
+<footer> Logged in As: <%= link_to session[:name], customer_path(session[:id])%> 
+<%= button_to "Logout", {controller: 'sessions', action: 'destroy'}, method: 'delete' %>
+</footer>

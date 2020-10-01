@@ -19,10 +19,11 @@ la_guad = Bakery.create(name: "La Guadalupana", location: "Houston, TX")
 donut = Item.create(name: "glazed donut", price: 1)
 croissant = Item.create(name: "croissant", price: 2)
 cake = Item.create(name: "Tres Leches", price: 25)
+concha = Item.create(name: "concha", price: 3)
 
-alex = Customer.create(first_name: "Alex", last_name: "Mata")
-felipe = Customer.create(first_name: "Felipe", last_name: "Dolago")
-joe = Customer.create(first_name: "Joe", last_name: "Burks")
+alex = Customer.create(first_name: "Alex", last_name: "Mata", email: "alexmata@gmail.com", password: "Password1")
+felipe = Customer.create(first_name: "Felipe", last_name: "Dolago", email: "felipe@gmail.com", password: "Password1")
+joe = Customer.create(first_name: "Joe", last_name: "Burks", email: "joeburks@hotmail.com", password: "Password1")
 
 5.times do 
     Recipe.create(item_id: Item.all.sample.id, bakery_id: Bakery.all.sample.id, ingredients: "sugar, flour, water, milk, yeast", cook_time: 60)
@@ -31,5 +32,7 @@ end
 10.times do
     Order.create(customer_id: Customer.all.sample.id, item_id: Item.all.sample.id, bakery_id: Bakery.all.sample.id)
 end
+
+Recipe.create(item_id: concha.id, bakery_id: la_guad.id, ingredients: "sugar, flour, egg, water", cook_time: 30)
 
 puts "Let's go get some donuts."

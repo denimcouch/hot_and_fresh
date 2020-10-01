@@ -20,3 +20,8 @@
 </h2>
 
 <%= link_to('Delete Account', customer_path(@customer), method: "delete") %>
+
+<hr>
+<footer> Logged in As: <%= link_to session[:name], customer_path(session[:id])%><br>
+<%=button_to "Logout", {controller: 'sessions', action: 'destroy'}, method: 'delete'%>
+</footer>

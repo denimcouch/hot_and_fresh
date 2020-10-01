@@ -3,6 +3,7 @@ class CreateOrders < ActiveRecord::Migration[6.0]
     create_table :orders do |t|
       t.integer :customer_id
       t.integer :item_id
+      t.integer :bakery_id
 
       t.timestamps
     end

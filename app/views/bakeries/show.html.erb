@@ -13,3 +13,8 @@
 
     <%= button_to "Place an Order", {controller: 'orders', action: 'new'}, params: {bakery: @bakery}, method: "get"%>
 </p>
+
+<hr>
+<footer> Logged in As: <%= link_to session[:name], customer_path(session[:id])%> 
+<%= button_to "Logout", {controller: 'sessions', action: 'destroy'}, method: 'delete' %>
+</footer>
