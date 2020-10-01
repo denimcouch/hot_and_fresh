@@ -9,6 +9,7 @@ class OrdersController < ApplicationController
         # byebug
         @order = Order.new
         @customers = Customer.all
+        @customer = Customer.find(params[:customer_id])
         @bakeries = Bakery.all
         @bakery = Bakery.find(params[:bakery])
         @items = @bakery.items

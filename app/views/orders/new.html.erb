@@ -4,7 +4,7 @@
 
 <%=f.hidden_field :bakery_id, value: @bakery.id %>
 
-<%=f.collection_select :customer_id, @customers, :id, :full_name, {include_blank: "Select your Name."} %><br><br>
+<%=f.collection_select :customer_id, @customers, :id, :full_name, {selected: @customer.full_name} %><br><br>
 
 <%=f.label :tasty_treats%><br>
 <%=f.collection_check_boxes :item_id, @items, :id, :name%><br><br>
