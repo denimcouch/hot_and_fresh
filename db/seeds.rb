@@ -33,6 +33,7 @@ end
     Order.create(customer_id: Customer.all.sample.id, item_id: Item.all.sample.id, bakery_id: Bakery.all.sample.id)
 end
 
+
 Recipe.create(item_id: concha.id, bakery_id: la_guad.id, ingredients: "sugar, flour, egg, water", cook_time: 30)
 
 puts "Let's go get some donuts."

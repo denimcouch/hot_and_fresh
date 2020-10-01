@@ -2,9 +2,7 @@
 
 <h3><%= @customer.created_at.strftime("Customer since %B %d, %Y") %></h3>
 
-<h2>Order History:</h2>
-
-<h2>
+<h2>Order History:
     <% @orders.each do |key, value| %>
         <li>
             <u><%= link_to key.name, bakery_path(key) %> </u><br>
@@ -19,8 +17,8 @@
     <% end %>
 </h2>
 
-<%= link_to('Delete Account', customer_path(@customer), method: "delete") %>
-
+<%= link_to('Delete Account', customer_path(@customer), method: "delete") %><br>
+<%= link_to "Return to Main Page", "/"%>
 <hr>
 <footer> Logged in As: <%= link_to session[:name], customer_path(session[:id])%><br>
 <%=button_to "Logout", {controller: 'sessions', action: 'destroy'}, method: 'delete'%>

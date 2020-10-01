@@ -3,6 +3,13 @@
 <h3>Located in <%= @bakery.location%></h3>
 <h3><%= @bakery.created_at.strftime("Open since %Y")%></h3>
 
+<h3> 
+    Most popular item: <%=@bakery.most_popular.name%><br> 
+    Most valued customer: <%= link_to @bakery.most_valued_customer_name, customer_path(@bakery.most_valued_customer.id)%> 
+    with <%= @bakery.most_valued_customer_orders.count%> orders!
+</h3>
+
+
 <h2>Tasty Offerings</h2>
 <p>
     <% @bakery.items.each do |item| %>
@@ -13,6 +20,8 @@
 
     <%= button_to "Place an Order", {controller: 'orders', action: 'new'}, params: {bakery: @bakery, customer_id: session[:id]}, method: "get"%>
 </p>
+
+<%= link_to "Return to All Bakeries", bakeries_path %>
 
 <hr>
 <footer> Logged in As: <%= link_to session[:name], customer_path(session[:id])%> 
