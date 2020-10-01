@@ -44,12 +44,12 @@ class CustomersController < ApplicationController
 
     def destroy
         @customer.destroy
-        redirect_to customers_path
+        redirect_to '/'
     end
 
     private
 
     def custy_params
-        params.require(:customer).permit(:first_name, :last_name)
+        params.require(:customer).permit(:first_name, :last_name, :email, :password)
     end
 end
