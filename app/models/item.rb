@@ -11,5 +11,13 @@ class Item < ApplicationRecord
     def times_purchased
         self.orders.count
     end
+
+    def popular_item?
+        if self.times_purchased > 5
+            "Hot and Fresh Best Seller!"
+        else
+            "A tasty treat"
+        end
+    end
  
 end

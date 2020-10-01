@@ -4,10 +4,15 @@
 
 <%=f.hidden_field :bakery_id, value: @bakery.id %>
 
-<%=f.collection_select :customer_id, @customers, :id, :full_name, {selected: @customer.full_name} %><br><br>
+<%=f.collection_select :customer_id, @customers, :id, :full_name, {include_blank: @customer.full_name} %><br><br>
 
 <%=f.label :tasty_treats%><br>
 <%=f.collection_check_boxes :item_id, @items, :id, :name%><br><br>
 
 <%=f.submit "Place Order"%>
-<% end %>
+<% end %><br>
+
+<hr>
+<footer> Logged in As: <%= link_to session[:name], customer_path(session[:id])%> 
+<%= button_to "Logout", {controller: 'sessions', action: 'destroy'}, method: 'delete' %>
+</footer>

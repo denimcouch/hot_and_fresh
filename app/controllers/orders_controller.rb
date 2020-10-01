@@ -9,7 +9,7 @@ class OrdersController < ApplicationController
         # byebug
         @order = Order.new
         @customers = Customer.all
-        @customer = Customer.find(params[:customer_id])
+        @customer = Customer.find(session[:id])
         @bakeries = Bakery.all
         @bakery = Bakery.find(params[:bakery])
         @items = @bakery.items
@@ -20,12 +20,12 @@ class OrdersController < ApplicationController
         items_list = (params[:order][:item_id][1..:item_id.length])
         items_list.each do |item_id|
             @order = Order.new
-            @order.customer_id = params[:order][:customer_id]
+            @order.customer_id = session[:id]
             @order.item_id = item_id
             @order.bakery_id = params[:order][:bakery_id]
             @order.save
         end
-        redirect_to customer_path(@order.customer_id)
+        redirect_to customer_path(session[:id])
     end
 
     def destroy

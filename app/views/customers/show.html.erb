@@ -1,6 +1,13 @@
-<h1><%= @customer.full_name %></h1>
+<h1><%= @customer.full_name %></h1><hr>
 
-<h3><%= @customer.created_at.strftime("Customer since %B %d, %Y") %></h3>
+<h3>
+    <%= @customer.created_at.strftime("Customer since %B %d, %Y") %><br><br>
+    Favorite treat: <%= link_to @customer.favorite_item.name.capitalize, item_path(@customer.favorite_item.id)%><br>
+    Favorite Bakery: <%= link_to @customer.favorite_bakery_name, bakery_path(@customer.favorite_bakery_id)%> with
+    <%= @customer.favorite_bakery_times_ordered%> orders.<br>
+    Total spent on pastries: $<%= @customer.total_spent%>.00
+</h3>
+
 
 <h2>Order History:
     <% @orders.each do |key, value| %>
@@ -8,7 +15,7 @@
             <u><%= link_to key.name, bakery_path(key) %> </u><br>
             <% value.each do |value_data| %>
                 <li>
-                    <%=link_to (@items.find(value_data.item_id).name), 
+                    <%=link_to (@items.find(value_data.item_id).name.capitalize), 
                     item_path(@items.find(value_data.item_id))%> - ordered on
                     <%=value_data.created_at.strftime("%D")%>
                 </li>
