@@ -14,7 +14,7 @@ class Customer < ApplicationRecord
 
     def favorite_item
         fave = (self.orders.group_by{| order | order.item}).max_by{ |k,v| v.count }
-        fave[0].name
+        fave[0]
     end
     def favorite_bakery
         bakeries_group = self.orders.group_by{|order| order.bakery}
@@ -23,6 +23,9 @@ class Customer < ApplicationRecord
     end
     def favorite_bakery_name
         self.favorite_bakery[0].name
+    end
+    def favorite_bakery_id
+        self.favorite_bakery[0].id
     end
     def favorite_bakery_times_ordered
         self.favorite_bakery[1].count
@@ -48,7 +51,7 @@ class Customer < ApplicationRecord
     end
     #total spent on items
     def total_spent
-    custy.orders.sum{|order| order.item.price}
+        self.orders.sum{|order| order.item.price}
     end
 
     # def total_spent_at_bakery(bakery_name)

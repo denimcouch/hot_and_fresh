@@ -22,7 +22,7 @@ class CustomersController < ApplicationController
         @customer = Customer.new(custy_params)
         if @customer.valid?
             @customer.save
-            redirect_to customer_path(@customer)
+            redirect_to '/sign_in'
         else
             flash[:errors] = @customer.errors.full_messages
             redirect_to new_customer_path
