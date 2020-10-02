@@ -1,14 +1,15 @@
 <h1><%= @item.name.capitalize %></h1><hr>
 
-<h3><%= @item.popular_item? %></h3>
+<h3 class="info"><%= @item.popular_item? %></h3>
 
-<h2> Bakeries that sell <%= @item.name %></h2>
-<h3>
+<h2 class="list_title"> Bakeries that sell <%= @item.name.capitalize %></h2>
+<div class="list_info">
     <% @item.bakeries.each do |bakery| %>
-        <li>
+        <li id="bakery_list">
             <%= link_to bakery.name, bakery_path(bakery) %>
         </li>
     <% end %>
-</h3>
+</div>
+<br>
 
 <%=link_to "Return to Previous Page", :back %>

@@ -1,12 +1,12 @@
 <h1>All the Bakeries</h1><hr>
 
-<h2>
+<div class="list_info">
     <% @bakeries.each do |bakery| %>
-        <li>
+        <li id="bakery_list">
             <%= link_to bakery.name, bakery_path(bakery) %>
         </li>
     <% end %>
-</h2>
+</div>
 <hr>
 <footer> Logged in As: <%= link_to session[:name], customer_path(session[:id])%> 
 <%= button_to "Logout", {controller: 'sessions', action: 'destroy'}, method: 'delete' %>

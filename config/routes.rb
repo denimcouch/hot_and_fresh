@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
-  resources :orders
-  resources :recipes
-  resources :items
+  resources :orders, only: [:index, :new, :create, :destroy]
+  resources :items, only: [:index, :show]
   resources :bakeries, only: [:index, :show]
   resources :customers
 
