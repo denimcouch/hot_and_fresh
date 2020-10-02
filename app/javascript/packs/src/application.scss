@@ -1,0 +1,95 @@
+@import "~bootstrap/scss/bootstrap";
+
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: floralwhite;
+    margin: 25px 50px 50px;
+    }
+
+h1 {
+    background-color:  rgba(0, 0, 255, 0.2); 
+    padding: 5px;
+    border-style: dotted; 
+    border-color: rgba(0, 0, 155, 0.4); 
+    border-width: 2px;
+    border-radius: 3px;
+    }
+
+footer {
+    background-color:  rgba(0, 0, 255, 0.2); 
+    padding: 5px;
+    border-style: dotted; 
+    border-color: rgba(0, 0, 155, 0.4); 
+    border-width: 2px;
+    border-radius: 3px;
+}
+
+.info {
+    font-size: medium;
+    padding: 10px;
+    background-color:  rgba(0, 0, 255, 0.1); 
+    border-style: hidden; 
+    border-color: rgba(0, 0, 155, 0.4); 
+    border-width: 2px;
+    border-radius: 3px;
+    }
+
+.list_title {
+    font-style: oblique;
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    padding: 10px;
+    background-color:  rgba(0, 0, 255, 0.1); 
+    border-style: hidden; 
+    border-color: rgba(0, 0, 155, 0.4); 
+    border-width: 2px;
+    border-radius: 3px;
+    }
+
+.list_info {
+    padding: 5px;
+    background-color:  rgba(12, 216, 199, 0.534); 
+    border-style: hidden; 
+    border-color: rgba(12, 216, 199, 0.534); 
+    border-width: 2px;
+    border-radius: 3px;
+}
+
+#delete_link {
+    box-sizing: content-box;
+    width: 35%;
+    background-color:  rgba(235, 20, 13, 0.281); 
+    border-style: hidden; 
+    border-color: rgba(235, 20, 13, 0.281); 
+    border-width: 2px;
+    border-radius: 3px;
+    float: left;
+}
+
+.return_link {
+    box-sizing: content-box;
+    width: 35%;
+    background-color:  rgba(0, 0, 255, 0.295); 
+    border-style: hidden; 
+    border-color: rgba(0, 0, 155, 0.4); 
+    border-width: 2px;
+    border-radius: 3px;
+    float: left;
+}
+
+  
+#bakery_name {
+    font-size: 24px;
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+}
+
+#bakery_item {
+    font-size: 24px;
+}
+
+#bakery_list {
+    font-size: 24px;
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+}

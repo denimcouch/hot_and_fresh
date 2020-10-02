@@ -1,6 +1,6 @@
 <h1><%= @customer.full_name %></h1><hr>
 
-<h3>
+<h3 class="info">
     <%= @customer.created_at.strftime("Customer since %B %d, %Y") %><br><br>
     Favorite treat: <%= link_to @customer.favorite_item.name.capitalize, item_path(@customer.favorite_item.id)%><br>
     Favorite Bakery: <%= link_to @customer.favorite_bakery_name, bakery_path(@customer.favorite_bakery_id)%> with
@@ -9,24 +9,33 @@
 </h3>
 
 
-<h2>Order History:
-    <% @orders.each do |key, value| %>
+<h2 class="list_title">Order History:</h2>
+<div class="list_info">
+    <p><% @orders.each do |key, value| %>
         <li>
-            <u><%= link_to key.name, bakery_path(key) %> </u><br>
+            <u id="bakery_name"><%= link_to key.name, bakery_path(key) %> </u><br>
             <% value.each do |value_data| %>
                 <li>
                     <%=link_to (@items.find(value_data.item_id).name.capitalize), 
                     item_path(@items.find(value_data.item_id))%> - ordered on
-                    <%=value_data.created_at.strftime("%D")%>
+                    <%=value_data.created_at.strftime("%D at %r")%>
                 </li>
-            <% end %><br>
+            <% end %>
         </li>
     <% end %>
-</h2>
-
-<%= link_to('Delete Account', customer_path(@customer), method: "delete") %><br>
-<%= link_to "Return to Main Page", "/"%>
-<hr>
+    </p>
+</div>
+<br>
+<div id="delete_link">
+    <%= link_to('Delete Account', customer_path(@customer), method: "delete") %>
+</div>
+<br>
+<br>
+<div class="return_link">
+    <%= link_to "Return to Main Page", "/"%>
+</div>
+<br>
+<br>
 <footer> Logged in As: <%= link_to session[:name], customer_path(session[:id])%><br>
 <%=button_to "Logout", {controller: 'sessions', action: 'destroy'}, method: 'delete'%>
 </footer>

@@ -1,29 +1,29 @@
-<h1><%= @bakery.name %></h1><hr>
-
-<h3>Located in <%= @bakery.location%></h3>
-<h3><%= @bakery.created_at.strftime("Open since %Y")%></h3>
-
-<h3> 
+<h1><%= @bakery.name %></h1>
+<br>
+<h3 class="info">
+    Located in <%= @bakery.location%><br>
+    <%= @bakery.created_at.strftime("Open since %Y")%>
+        <br><br>
     Most popular item: <%=link_to @bakery.most_popular.name.capitalize, item_path(@bakery.most_popular.id)%><br> 
     Most valued customer: <%= link_to @bakery.most_valued_customer_name, customer_path(@bakery.most_valued_customer.id)%> 
     with <%= @bakery.most_valued_customer_orders.count%> orders!
 </h3>
+<br>
+<h2 class="list_title">Tasty Offerings</h2>
+<div class="list_info">
+    <p>
+        <% @bakery.items.each do |item| %>
+            <li id="bakery_item">
+                <%= link_to item.name.capitalize, item_path(item) %> - $<%= item.price%>.00
+            </li>
+        <% end %>
+    </p>
+</div>
+<div class="link"><%= button_to "Place an Order", {controller: 'orders', action: 'new'}, params: {bakery: @bakery, customer: session[:id]}, method: "get"%></div>
+<br>
+<div class="link"><%= link_to "Return to All Bakeries", bakeries_path %></div>
 
-
-<h2>Tasty Offerings</h2>
-<p>
-    <% @bakery.items.each do |item| %>
-        <li>
-            <%= link_to item.name, item_path(item) %> - $<%= item.price%>.00
-        </li>
-    <% end %><br/>
-
-    <%= button_to "Place an Order", {controller: 'orders', action: 'new'}, params: {bakery: @bakery, customer: session[:id]}, method: "get"%>
-</p>
-
-<%= link_to "Return to All Bakeries", bakeries_path %>
-
-<hr>
+<br>
 <footer> Logged in As: <%= link_to session[:name], customer_path(session[:id])%> 
 <%= button_to "Logout", {controller: 'sessions', action: 'destroy'}, method: 'delete' %>
 </footer>

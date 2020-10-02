@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
     def sign_in
+        @disable_nav = true
         @customer = Customer.new
     end
 
